@@ -27,6 +27,13 @@ settings = dict(
     aws_redshift_password='DB_PASSWORD',
     aws_redshift_port=5439,
 
+    # Hatchery defaults
+    grazer_worker_size='m1.small',                             # AWS Instance Type
+    grazer_worker_ami='ami-9a562df2',                          # Ubuntu 14.04 LTS
+    security_groups=['security_group_1', 'security_group_2'],  # AWS Security Group strings
+    aws_ssh_key='aws_ssh_key_string',                          # SSH key on AWS account with which to provision instance
+    persist_storage=False,                                     # Bool: Persist EBS storage after instance termination
+
     log_directory='/mnt/logs/grazer/',
     pid_directory='/mnt/logs/grazer/',
     merge_bulk_threshold=10,

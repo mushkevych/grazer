@@ -252,13 +252,13 @@ class GrazerHatchery(AbstractCliWorker):
             fabric.operations.env.warn_only = True
             for profile, headcount in nodes_to_provision.iteritems():
                 grazer_size = settings.settings['grazer_worker_size']
-                grazer_env = settings.settings['grazer_worker_environment']
                 grazer_ami = settings.settings['grazer_worker_ami']
-                security_groups = ['security_group_1', 'security_group_2']
-                persist_storage = False
+                security_groups = settings.settings['security_groups']
+                ssh_key = settings.settings['aws_ssh_key']
+                persist_storage = settings.settings['persist_storage']
 
-                parameters = [conn, grazer_ami, grazer_size, security_groups, headcount, grazer_env, profile, persist_storage]
-                run_result = provision(*parameters)
+                run_result = provision(conn, grazer_size, security_groups, headcount, grazer_ami, profile, ssh_key,
+                                       persist_storage=persist_storage, ami=grazer_ami)
                 self.instances.extend(run_result.instances)
 
             if settings.settings['grazer_reducer_profile'] not in nodes_to_provision:
