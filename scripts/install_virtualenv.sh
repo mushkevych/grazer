@@ -60,7 +60,7 @@ easy_install $vendor/python_rest_client2.tar.gz
 easy_install $vendor/psutil-1.2.0.tar.gz
 
 easy_install $vendor/beautifulsoup4-4.3.2.tar.gz
-easy_install $vendor/boto-2.24.0.tar.gz
+easy_install $vendor/boto-2.38.0.tar.gz
 easy_install $vendor/simples3-1.0.tar.gz
 
 easy_install $vendor/psycopg2-2.5.4.tar.gz
