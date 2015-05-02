@@ -91,5 +91,5 @@ def enable_test_mode():
     )
     settings.update(test_settings)
 
-    from tests.ut_context import register_processes
-    register_processes()
+    from tests.ut_process_context import register_unit_test_context
+    register_unit_test_context()
