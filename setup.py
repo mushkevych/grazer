@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(name = 'grazer',
-      version = '0.8',
+      version = '0.9',
       description = 'Grazer Scraper',
       author = 'Bohdan Mushkevych',
       author_email = 'mushkevych@gmail.com',
@@ -20,6 +20,6 @@ setup(name = 'grazer',
           'Programming Language :: Python',
           'Topic :: Utilities',
           ],
-      requires=['werkzeug', 'jinja2', 'amqp', 'pymongo', 'psutil', 'fabric', 'setproctitle', 'mockito', 'synergy_odm',
+      requires=['werkzeug', 'jinja2', 'amqp', 'pymongo', 'psutil', 'fabric', 'setproctitle', 'synergy_odm',
                 'mock']
 )
