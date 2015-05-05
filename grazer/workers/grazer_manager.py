@@ -4,8 +4,7 @@ __author__ = 'Bohdan Mushkevych'
 import datetime
 import psycopg2
 
-from synergy.conf import settings
-from synergy.conf.process_context import ProcessContext
+from synergy.conf import settings, context
 from synergy.mq.flopsy import PublishersPool, purge_mq_queue
 from synergy.workers.abstract_mq_worker import AbstractMqWorker
 from synergy.system.utils import fully_qualified_table_name
@@ -34,7 +33,7 @@ class GrazerManager(AbstractMqWorker):
     def __init__(self, process_name):
         super(GrazerManager, self).__init__(process_name)
         self.publishers = PublishersPool(self.logger)
-        self.queue_sink = ProcessContext.get_sink(self.process_name)
+        self.queue_sink = context.process_context[self.process_name].sink
 
     def __del__(self):
         try:
